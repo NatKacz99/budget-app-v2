@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+
+    <link rel="stylesheet" href="style_dodaj_wydatek_przegladaj_bilans.css">
+    <link rel="stylesheet" href="./css/cap.css">
+
+    <script>
+        $(function () {
+            $("#datepicker").datepicker({
+                dateFormat: "yy-mm-dd"
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <section>
+        <nav>
+            <button id="menu-zamknij">
+                <img src="zamknij-ikona.svg" alt="ikona zamknięcia menu">
+            </button>
+            <ul>
+                <li><a href="index.html" class="strona-glowna"><i class="icon-home"></i>Strona główna</a></li>
+                <li><a href="#" class="dodaj-przychod"><i class="icon-dollar"></i>Dodaj przychód</a></li>
+                <li><a href="dodaj_wydatek.html" class="dodaj-wydatek"><i class="icon-basket"></i>Dodaj wydatek</a></li>
+                <li><a href="bilans.html" class="przegladaj-bilans"><i class="icon-calc"></i>Przeglądaj bilans</a></li>
+                <li><a href="#" class="ustawienia"><i class="icon-cog"></i>Ustawienia</a></li>
+                <li><a href="#" class="wyloguj-sie"><i class="icon-logout"></i>Wyloguj się</a></li>
+            </ul>
+        </nav>
+
+        <div class="menu-hamburger">
+            <button id="menu-hamburger">
+                <img src="menu_ikona.svg" alt="hamburger menu">
+            </button>
+        </div>
+    </section>
+
+    <article>
+        <form>
+            <div class="container">
+                <div>
+                    <label for="podaj-kwote">Podaj kwotę: </label><input type="text" id="podaj-kwote">
+                </div>
+                <div><label for="datepicker">Wybierz datę:</label>
+                    <input type="text" id="datepicker">
+                </div>
+
+                <div>
+                    <label for="sposob-platnosci">Sposób płatności:</label>
+                    <select id="sposob-platnosci">
+                        <option>Gotówka</option>
+                        <option>Karta debetowa</option>
+                        <option>Karta kredytowa</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="kategoria">Kategoria:</label>
+                    <select id="kategoria">
+                        <option>Jedzenie</option>
+                        <option>Mieszkanie</option>
+                        <option>Transport</option>
+                        <option>Telekomunikacja</option>
+                        <option>Opieka zdrowotna</option>
+                        <option>Ubranie</option>
+                        <option>Higiena</option>
+                        <option>Dzieci</option>
+                        <option>Rozrywka</option>
+                        <option>Wycieczka</option>
+                        <option>Szkolenia</option>
+                        <option>Książki</option>
+                        <option>Oszczędności</option>
+                        <option>Na złotą jesień, czyli emeryturę</option>
+                        <option>Spłata długów</option>
+                        <option>Darowizna</option>
+                        <option>Inne wydatki</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="komentarz">Komentarz (opcjonalnie):</label>
+                    <input type="text" id="komentarz">
+                </div>
+                <div class="przyciski">
+                    <input type="submit" value="Dodaj"> <input type="submit" value="Anuluj">
+                </div>
+            </div>
+        </form>
+    </article>
+
+    <script src="index.js" charset="utf-8"></script>
+</body>
+
+</html>
