@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="./css/cap.css">
+    <link rel="stylesheet" href="style_dodaj_wydatek_przegladaj_bilans.css">
+
+</head>
+
+<body>
+    <section>
+        <nav>
+            <button id="menu-zamknij">
+                <img src="zamknij-ikona.svg" alt="ikona zamknięcia menu">
+            </button>
+            <ul>
+                <li><a href="index.html" class="strona-glowna"><i class="icon-home"></i>Strona główna</a></li>
+                <li><a href="#" class="dodaj-przychod"><i class="icon-dollar"></i>Dodaj przychód</a></li>
+                <li><a href="dodaj_wydatek.html" class="dodaj-wydatek"><i class="icon-basket"></i>Dodaj wydatek</a></li>
+                <li><a href="bilans.html" class="przegladaj-bilans"><i class="icon-calc"></i>Przeglądaj bilans</a></li>
+                <li><a href="#" class="ustawienia"><i class="icon-cog"></i>Ustawienia</a></li>
+                <li><a href="#" class="wyloguj-sie"><i class="icon-logout"></i>Wyloguj się</a></li>
+            </ul>
+        </nav>
+
+        <div class="menu-hamburger">
+            <button id="menu-hamburger">
+                <img src="menu_ikona.svg" alt="hamburger menu">
+            </button>
+        </div>
+    </section>
+
+    <article>
+        <section>
+            <form id="formularz">
+                <div class="wybor-okresu">
+                    <div>
+                        <label for="przedzial-czasowy">Wybierz przedział czasowy:
+                            <select id="przedzial-czasowy">
+                                <option>bieżący miesiąc</option>
+                                <option>poprzedni miesiąc</option>
+                                <option>bieżący rok</option>
+                                <option id="niestandardowy">niestandardowy</option>
+                            </select>
+                        </label>
+                    </div>
+                    <div class="inny-termin">
+                        <label for="zakres">Podaj interesujący Cię zakres dat:
+                            <input type="text" id="zakres">
+                            <input type="button" value="Wybierz okres">
+                        </label>
+                    </div>
+                </div>
+            </form>
+        </section>
+
+        <section>
+            <div class="bilans">
+                <!-- <div>
+                    <h3>Przychody</h3>
+                    <table cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th class="naglowek-kategoria">Kategoria</th>
+                                <th class="naglowek-kwota">Kwota</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="kategoria">wynagrodzenie</td>
+                                <td>6000</td>
+                            </tr>
+                            <tr>
+                                <td class="kategoria">sprzedaż na allegro</td>
+                                <td>100</td>
+                            </tr>
+                            <tr>
+                                <td class="suma">Suma</td>
+                                <td>6100</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div>
+                    <h3>Wydatki</h3>
+                    <table cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th class="naglowek-kategoria">Kategoria</th>
+                                <th class="naglowek-kwota">Kwota</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="kategoria">jedzenie</td>
+                                <td>500</td>
+                            </tr>
+                            <tr>
+                                <td class="kategoria">rozrywka</td>
+                                <td>200</td>
+                            </tr>
+                            <tr>
+                                <td class="suma">Suma</td>
+                                <td>700</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <h3>Bilans</h3>
+                <h4>5400zł</h4> -->
+
+                <div class="wynik-procentowy">
+                    <div class="pie-chart">
+                        <canvas id="pie-chart" width="400" height="400">
+
+                        </canvas>
+                        <ul id="pie-chart-legend"></ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </article>
+    <script src="index.js" charset="utf-8"></script>
+</body>
+
+</html>
