@@ -18,17 +18,24 @@
             $("#datepicker").datepicker({
                 dateFormat: "yy-mm-dd"
             });
+
+            $(".menu-mobile__collapsible").on("click", function() {
+                let $menuList = $(".menu-mobile__list");
+                
+                if ($menuList.hasClass("hidden")) {
+                    $menuList.removeClass("hidden");  
+                } else {
+                    $menuList.addClass("hidden");  
+                }
+            });
         });
     </script>
 </head>
 
 <body>
     <section>
-        <nav>
-            <button id="menu-zamknij">
-                <img src="zamknij-ikona.svg" alt="ikona zamknięcia menu">
-            </button>
-            <ul>
+        <nav id="menu-desktop">
+            <ul class="menu-desktop__list">
                 <li><a href="index.html" class="strona-glowna"><i class="icon-home"></i>Strona główna</a></li>
                 <li><a href="#" class="dodaj-przychod"><i class="icon-dollar"></i>Dodaj przychód</a></li>
                 <li><a href="dodaj_wydatek.html" class="dodaj-wydatek"><i class="icon-basket"></i>Dodaj wydatek</a></li>
@@ -38,11 +45,19 @@
             </ul>
         </nav>
 
-        <div class="menu-hamburger">
-            <button id="menu-hamburger">
+        <nav id="menu-mobile">
+            <button class="menu-mobile__collapsible">
                 <img src="menu_ikona.svg" alt="hamburger menu">
             </button>
-        </div>
+            <ul class="menu-mobile__list hidden">
+                <li><a href="index.html" class="strona-glowna"><i class="icon-home"></i>Strona główna</a></li>
+                <li><a href="#" class="dodaj-przychod"><i class="icon-dollar"></i>Dodaj przychód</a></li>
+                <li><a href="dodaj_wydatek.html" class="dodaj-wydatek"><i class="icon-basket"></i>Dodaj wydatek</a></li>
+                <li><a href="bilans.html" class="przegladaj-bilans"><i class="icon-calc"></i>Przeglądaj bilans</a></li>
+                <li><a href="#" class="ustawienia"><i class="icon-cog"></i>Ustawienia</a></li>
+                <li><a href="#" class="wyloguj-sie"><i class="icon-logout"></i>Wyloguj się</a></li>
+            </ul>
+        </nav>
     </section>
 
     <article>
@@ -98,7 +113,6 @@
         </form>
     </article>
 
-    <script src="index.js" charset="utf-8"></script>
 </body>
 
 </html>

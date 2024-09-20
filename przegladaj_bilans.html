@@ -6,18 +6,80 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="./css/cap.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
     <link rel="stylesheet" href="style_dodaj_wydatek_przegladaj_bilans.css">
+    <link rel="stylesheet" href="./css/cap.css">
+
+    <script>
+        $(function () {
+            $(".menu-mobile__collapsible").on("click", function () {
+                let $menuList = $(".menu-mobile__list");
+
+                if ($menuList.hasClass("hidden")) {
+                    $menuList.removeClass("hidden");
+                } else {
+                    $menuList.addClass("hidden");
+                }
+            });
+        });
+
+        document.addEventListener("DOMContentLoaded", pokazPieChart);
+
+function pokazPieChart() {
+  let sectionA = { size: 6000, color: "pink" };
+  let sectionB = { size: 100, color: "yellow" };
+
+  const values = [sectionA.size, sectionB.size];
+  const total = values.reduce((acc, val) => acc + val, 0);
+
+  let startAngle = 0;
+
+  const canvas = document.getElementById("pie-chart");
+  const ctx = canvas.getContext("2d");
+
+  values.forEach((value, index) => {
+    const angle = (value / total) * Math.PI * 2;
+
+    ctx.beginPath();
+    ctx.moveTo(canvas.width / 2, canvas.height / 2);
+    ctx.arc(
+      canvas.width / 2,
+      canvas.height / 2,
+      canvas.width / 2,
+      startAngle,
+      startAngle + angle
+    );
+    ctx.closePath();
+
+    ctx.fillStyle = index === 0 ? sectionA.color : sectionB.color;
+    ctx.fill();
+
+    startAngle += angle;
+  });
+
+  const legend = document.getElementById("pie-chart-legend");
+
+  legend.innerHTML = `
+    <div class="legend-item">
+    <div class="legend-color" style="background-color:${sectionA.color}"></div>
+    <div class="legend-label">wynagrodzenie: ${((sectionA.size / total) * 100).toFixed(2)} %</div>
+    </div> 
+    <div class="legend-item">
+    <div class="legend-color" style="background-color:${sectionB.color}"></div>
+    <div class="legend-label">sprzedaż na allegro: ${((sectionB.size / total) * 100).toFixed(2)} %</div>
+    </div> 
+    `;
+}
+
+    </script>
 
 </head>
 
 <body>
     <section>
-        <nav>
-            <button id="menu-zamknij">
-                <img src="zamknij-ikona.svg" alt="ikona zamknięcia menu">
-            </button>
-            <ul>
+        <nav id="menu-desktop">
+            <ul class="menu-desktop__list">
                 <li><a href="index.html" class="strona-glowna"><i class="icon-home"></i>Strona główna</a></li>
                 <li><a href="#" class="dodaj-przychod"><i class="icon-dollar"></i>Dodaj przychód</a></li>
                 <li><a href="dodaj_wydatek.html" class="dodaj-wydatek"><i class="icon-basket"></i>Dodaj wydatek</a></li>
@@ -27,11 +89,19 @@
             </ul>
         </nav>
 
-        <div class="menu-hamburger">
-            <button id="menu-hamburger">
+        <nav id="menu-mobile">
+            <button class="menu-mobile__collapsible">
                 <img src="menu_ikona.svg" alt="hamburger menu">
             </button>
-        </div>
+            <ul class="menu-mobile__list hidden">
+                <li><a href="index.html" class="strona-glowna"><i class="icon-home"></i>Strona główna</a></li>
+                <li><a href="#" class="dodaj-przychod"><i class="icon-dollar"></i>Dodaj przychód</a></li>
+                <li><a href="dodaj_wydatek.html" class="dodaj-wydatek"><i class="icon-basket"></i>Dodaj wydatek</a></li>
+                <li><a href="bilans.html" class="przegladaj-bilans"><i class="icon-calc"></i>Przeglądaj bilans</a></li>
+                <li><a href="#" class="ustawienia"><i class="icon-cog"></i>Ustawienia</a></li>
+                <li><a href="#" class="wyloguj-sie"><i class="icon-logout"></i>Wyloguj się</a></li>
+            </ul>
+        </nav>
     </section>
 
     <article>
@@ -60,7 +130,7 @@
 
         <section>
             <div class="bilans">
-                <!-- <div>
+                <div>
                     <h3>Przychody</h3>
                     <table cellspacing="0">
                         <thead>
@@ -105,23 +175,29 @@
                                 <td>200</td>
                             </tr>
                             <tr>
+                                <td class="kategoria">transport</td>
+                                <td>400</td>
+                            </tr>
+                            <tr>
                                 <td class="suma">Suma</td>
-                                <td>700</td>
+                                <td>1100</td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
-                <h3>Bilans</h3>
-                <h4>5400zł</h4> -->
 
-                <div class="wynik-procentowy">
-                    <div class="pie-chart">
-                        <canvas id="pie-chart" width="400" height="400">
+                <div class="wynik-procentowy"></div>
+                    <div class="pie-chart-container">
+                        <canvas id="pie-chart" width="200" height="200">
 
                         </canvas>
                         <ul id="pie-chart-legend"></ul>
                     </div>
                 </div>
+                
+                <h3>Bilans</h3>
+                <h4>5000zł</h4>
+
             </div>
         </section>
     </article>
