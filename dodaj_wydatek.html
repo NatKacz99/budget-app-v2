@@ -6,6 +6,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <title>Dodaj wydatek</title>
+
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
@@ -15,17 +17,17 @@
 
     <script>
         $(function () {
-            $("#datepicker").datepicker({
+            $(".datepicker").datepicker({
                 dateFormat: "yy-mm-dd"
             });
 
-            $(".menu-mobile__collapsible").on("click", function() {
+            $(".menu-mobile__collapsible").on("click", function () {
                 let $menuList = $(".menu-mobile__list");
-                
+
                 if ($menuList.hasClass("hidden")) {
-                    $menuList.removeClass("hidden");  
+                    $menuList.removeClass("hidden");
                 } else {
-                    $menuList.addClass("hidden");  
+                    $menuList.addClass("hidden");
                 }
             });
         });
@@ -53,7 +55,8 @@
                 <li><a href="index.html" class="strona-glowna"><i class="icon-home"></i>Strona główna</a></li>
                 <li><a href="#" class="dodaj-przychod"><i class="icon-dollar"></i>Dodaj przychód</a></li>
                 <li><a href="dodaj_wydatek.html" class="dodaj-wydatek"><i class="icon-basket"></i>Dodaj wydatek</a></li>
-                <li><a href="bilans.html" class="przegladaj-bilans"><i class="icon-calc"></i>Przeglądaj bilans</a></li>
+                <li><a href="przegladaj_bilans.html" class="przegladaj-bilans"><i class="icon-calc"></i>Przeglądaj
+                        bilans</a></li>
                 <li><a href="#" class="ustawienia"><i class="icon-cog"></i>Ustawienia</a></li>
                 <li><a href="#" class="wyloguj-sie"><i class="icon-logout"></i>Wyloguj się</a></li>
             </ul>
@@ -64,15 +67,18 @@
         <form>
             <div class="container">
                 <div>
-                    <label for="podaj-kwote">Podaj kwotę: </label><input type="text" id="podaj-kwote">
-                </div>
-                <div><label for="datepicker">Wybierz datę:</label>
-                    <input type="text" id="datepicker">
+                    <label for="enter-amount">Podaj kwotę:</label>
+                    <input type="text" class="enter-amount">
                 </div>
 
                 <div>
-                    <label for="sposob-platnosci">Sposób płatności:</label>
-                    <select id="sposob-platnosci">
+                    <label for="datepicker">Wybierz datę:</label>
+                    <input type="text" class="datepicker">
+                </div>
+
+                <div>
+                    <label for="payment-method">Sposób płatności:</label>
+                    <select class="payment-method">
                         <option>Gotówka</option>
                         <option>Karta debetowa</option>
                         <option>Karta kredytowa</option>
@@ -80,8 +86,8 @@
                 </div>
 
                 <div>
-                    <label for="kategoria">Kategoria:</label>
-                    <select id="kategoria">
+                    <label for="category">Kategoria:</label>
+                    <select class="category">
                         <option>Jedzenie</option>
                         <option>Mieszkanie</option>
                         <option>Transport</option>
@@ -103,11 +109,84 @@
                 </div>
 
                 <div>
-                    <label for="komentarz">Komentarz (opcjonalnie):</label>
-                    <input type="text" id="komentarz">
+                    <label for="comment">Komentarz (opcjonalnie):</label>
+                    <input type="text" class="comment">
                 </div>
-                <div class="przyciski">
-                    <input type="submit" value="Dodaj"> <input type="submit" value="Anuluj">
+
+                <div class="buttons">
+                    <input type="submit" value="Dodaj">
+                    <input type="submit" value="Anuluj">
+                </div>
+
+            </div>
+        </form>
+
+        <form>
+            <div class="container-small-screen">
+                <div>
+                    <label for="enter-amount">Podaj kwotę:</label>
+                </div>
+                <div>
+                    <input type="text" class="enter-amount">
+                </div>
+
+                <div>
+                    <label for="datepicker">Wybierz datę:</label>
+                </div>
+                <div>
+                    <input type="text" class="datepicker">
+                </div>
+
+                <div>
+                    <label for="payment-method">Sposób płatności:</label>
+                </div>
+                <div>
+                    <select class="payment-method">
+                        <option>Gotówka</option>
+                        <option>Karta debetowa</option>
+                        <option>Karta kredytowa</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="category">Kategoria:</label>
+                </div>
+                <div>
+                    <select class="category">
+                        <option>Jedzenie</option>
+                        <option>Mieszkanie</option>
+                        <option>Transport</option>
+                        <option>Telekomunikacja</option>
+                        <option>Opieka zdrowotna</option>
+                        <option>Ubranie</option>
+                        <option>Higiena</option>
+                        <option>Dzieci</option>
+                        <option>Rozrywka</option>
+                        <option>Wycieczka</option>
+                        <option>Szkolenia</option>
+                        <option>Książki</option>
+                        <option>Oszczędności</option>
+                        <option>Na złotą jesień, czyli emeryturę</option>
+                        <option>Spłata długów</option>
+                        <option>Darowizna</option>
+                        <option>Inne wydatki</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="comment">Komentarz (opcjonalnie):</label>
+                </div>
+                <div>
+                    <input type="text" class="comment">
+                </div>
+
+                <div class="buttons">
+                    <div>
+                        <input type="submit" value="Dodaj">
+                    </div>
+                    <div>
+                        <input type="button" value="Anuluj">
+                    </div>
                 </div>
             </div>
         </form>

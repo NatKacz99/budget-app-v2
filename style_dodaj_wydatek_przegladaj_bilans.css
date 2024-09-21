@@ -12,7 +12,7 @@ body {
 
 li {
     list-style: none;
-    display: block  ;
+    display: block;
 }
 
 #menu-desktop {
@@ -38,7 +38,7 @@ option {
     border-radius: 5px;
 }
 
-.wybor-okresu {
+.check-period {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
@@ -47,6 +47,7 @@ option {
 th,
 td {
     border: 1px solid black;
+    padding: 8px;
 }
 
 input[type="text"],
@@ -78,53 +79,92 @@ input[value="Anuluj"] {
     margin-top: 40px
 }
 
-.przyciski {
-    gap: 40px
+.buttons {
+    display: flex;
+    gap: 40px;
+    margin-top: 30px;
 }
 
-.suma{
+.sum {
     font-weight: 700;
 }
 
-.bilans{
+.balance {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    margin: 0;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tables-incomings-expenses {
     display: flex;
     flex-direction: row;
-    gap: 40px;
-    justify-content: center;
+    gap: 90px;
+    margin-bottom: 60px;
+    align-items: flex-start;
 }
 
-.kategoria{
-    width: 125px
-}
 
-h3{
+h3 {
     text-align: center;
 }
 
-.naglowek-kategoria{
+span {
+    color: rgb(200, 20, 20)
+}
+
+.charts {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-around;
+}
+
+.header-category {
     background-color: rgb(165, 60, 19);
 }
 
-.naglowek-kwota{
+.header-amount {
     background-color: rgb(128, 37, 212);
 }
 
-.pie-chart-container{
-    display: flex;
-    flex-direction: column;
+.pie-chart-incomings-container,
+.pie-chart-expenses-container {
+    width: 100%;
 }
 
-.legend-item{
+.pie-chart-expenses-container {
+    margin-left: 80px;
+}
+
+.legend-item {
     display: flex;
     margin-top: 20px;
     gap: 15px;
 }
 
-.legend-color{
+.legend-color {
     width: 20px;
     height: 20px;
     border-radius: 50%;
     display: inline-block;
+}
+
+#pie-chart-legend__incomings,
+#pie-chart-legend__expenses {
+    text-align: left;
+    margin: 0;
+    padding: 0
+}
+
+.container-small-screen {
+    display: none;
 }
 
 @media(max-width: 768px) {
@@ -138,7 +178,6 @@ h3{
         align-items: flex-end;
     }
 
-    
     .menu-mobile__list {
         position: absolute;
         top: 40px;
@@ -148,12 +187,12 @@ h3{
         border-radius: 12px;
         width: 200px;
         background-color: #f1f1f1;
-        max-height: 230px; 
+        max-height: 230px;
         overflow: hidden;
         transition: max-height 0.5s ease-in-out;
     }
 
-    .menu-mobile__list > li > a {
+    .menu-mobile__list>li>a {
         display: block;
         color: #000;
         padding: 8px 16px;
@@ -161,7 +200,7 @@ h3{
         text-align: center;
     }
 
-    .menu-mobile__list > li > a:hover {
+    .menu-mobile__list>li>a:hover {
         background-color: #555;
         color: white;
     }
@@ -176,7 +215,45 @@ h3{
         transition: max-height 0.5s ease-out;
     }
 
-    .wybor-okresu {
+    .check-period {
         margin-top: 50px;
+    }
+
+    .tables-incomings-expenses {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .differnet-term {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        margin: 0;
+        padding: 0
+    }
+
+    .charts {
+        flex-direction: column;
+    }
+
+    .pie-chart-expenses-container {
+        margin-left: 0;
+        margin-top: 40px;
+    }
+
+    input[value="Wybierz okres"]{
+        width: 100px
+    }
+}
+
+@media(width < 576px){
+    .container{
+        display: none
+    }
+
+    .container-small-screen{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 }
