@@ -43,6 +43,11 @@ button {
   font-weight: 600;
 }
 
+button:hover{
+  cursor: pointer;
+  background-color: rgb(37, 98, 24);
+}
+
 @media (max-width: 767px){
   body{
     box-sizing: border-box;
