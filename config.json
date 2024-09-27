@@ -59,6 +59,18 @@
       "css": "dollar",
       "code": 61781,
       "src": "fontawesome"
+    },
+    {
+      "uid": "d35a1d35efeb784d1dc9ac18b9b6c2b6",
+      "css": "pencil",
+      "code": 59397,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "531bc468eecbb8867d822f1c11f1e039",
+      "css": "calendar",
+      "code": 59398,
+      "src": "fontawesome"
     }
   ]
 }
